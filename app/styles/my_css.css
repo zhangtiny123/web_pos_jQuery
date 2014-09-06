@@ -8,3 +8,12 @@
     padding-top: 20px;
     text-align: center;
 }
+
+.my_panel_head_left{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+tr,td{
+    text-align: center;
+}

@@ -1,7 +1,8 @@
 /**
 * Created by tiny on 14-8-16.
 */
-function Counting(name,barcode,price,unit){
+function Counting(type, name,barcode,price,unit){
+    this.type = type;
     this.name = name;
     this.barcode = barcode;
     this.price = price;

@@ -4,8 +4,7 @@
 //TODO: Please write code in this file.
 var printInventory = function (inputs) {
     var list = [];
-    var pay_list;
-    var free_list;
+
     var i = 0;
     while(i < inputs.length){
         if (has_item_in_list(list, inputs[i])){
@@ -15,13 +14,14 @@ var printInventory = function (inputs) {
         else {
             var barcode = get_input_barcode(inputs[i]);
             var item = Item.find_by_barcode(barcode);
-            var counting = new Counting(item.name, item.barcode, item.price, item.unit);
+            var counting = new Counting(item.type, item.name, item.barcode, item.price, item.unit);
             counting.count_plus(get_input_item_number(inputs[i]));
             counting.calculate_total_price();
             list.push(counting);
         }
         i += 1;
     }
+    return list;
 
 
 };

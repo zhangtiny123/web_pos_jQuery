@@ -41,7 +41,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a></li>
+                <li class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>购物车(<span id="cart_count">0</span>)</a></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -50,8 +50,8 @@
 
 <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading my_panel_head">
-            <h3 class="panel-title">购物车</h3>
+        <div class="panel-heading my_panel_head_left">
+            <h3 class="panel-title">购物清单</h3>
         </div>
         <div class="panel-body">
             <table class="table table-bordered">
@@ -63,7 +63,7 @@
                 <td>数量</td>
                 <td>小计</td>
                 </thead>
-                <tbody>
+                <tbody id="cart_item_body">
 
                 </tbody>
             </table>
@@ -111,7 +111,12 @@
 <!-- endbuild -->
 
 <!-- build:js({app,.tmp}) scripts/index.js -->
-<script src="../scripts/index.js"></script>
+<script src="../scripts/fixtures.js"></script>
+<script src="../scripts/print_inventory.js"></script>
+<script src="../model/Counting.js"></script>
+<script src="../model/item.js"></script>
+<script src="../model/promotion.js"></script>
+<script src="../scripts/cart.js"></script>
 <!-- endbuild -->
 </body>
 </html>

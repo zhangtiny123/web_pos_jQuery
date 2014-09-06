@@ -1,4 +1,5 @@
-function Item(barcode, name, unit, price) {
+function Item(type, barcode, name, unit, price) {
+    this.type = type;
     this.barcode = barcode;
     this.name = name;
     this.unit = unit;
