@@ -49,11 +49,11 @@
 </nav>
 
 <div class="container">
-    <div class="panel panel-default">
+    <div id="main_cart_panel" class="panel panel-default">
         <div class="panel-heading my_panel_head_left">
             <h3 class="panel-title">购物清单</h3>
         </div>
-        <div class="panel-body">
+        <div id="cart_panel" class="panel-body">
             <table class="table table-bordered">
                 <thead>
                 <td>分类</td>
@@ -68,6 +68,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 
 </div>
@@ -111,6 +112,7 @@
 <!-- endbuild -->
 
 <!-- build:js({app,.tmp}) scripts/index.js -->
+<script src="../lib/underscore.js"></script>
 <script src="../scripts/fixtures.js"></script>
 <script src="../scripts/print_inventory.js"></script>
 <script src="../model/Counting.js"></script>
