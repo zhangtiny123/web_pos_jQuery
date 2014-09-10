@@ -21,7 +21,6 @@ $(document).ready(function(){
     $(".add_button").on("click", function(){
         var barcode = $(this).closest(".product_item").data("barcode");
         var cart_items = JSON.parse(localStorage.cart_items);
-        console.log(cart_items);
         cart_items.push(barcode);
         localStorage.cart_items = JSON.stringify(cart_items);
 

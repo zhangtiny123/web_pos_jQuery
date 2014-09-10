@@ -19,6 +19,7 @@
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.7, RVM: ruby-2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, RVM: ruby-2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.5.3, RVM: ruby-2.1.1) [gem]" level="application" />
+    <orderEntry type="library" name="web_pos_jQuery node_modules" level="project" />
   </component>
 </module>
 

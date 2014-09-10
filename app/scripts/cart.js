@@ -68,10 +68,7 @@ $(document).ready(function(){
     $(".count_minus").on("click", function() {
         var barcode = $(this).closest(".cart_item").data("barcode");
         var stored_items = JSON.parse(localStorage.cart_items);
-        console.log("到这里没有问题。");
-        console.log("index:"+stored_items.indexOf(barcode));
         stored_items.splice(stored_items.indexOf(barcode), 1);
-        console.log("删除元素没有问题。");
         localStorage.cart_items = JSON.stringify(stored_items);
 
         refresh(this);
@@ -89,15 +86,36 @@ $(document).ready(function(){
 
     function refresh(location_string){
         var cart_items = JSON.parse(localStorage.cart_items);
-        var bought_item_list = printInventory(cart_items);
-        var clicked_barcode = $(location_string).closest(".cart_item").data("barcode");
-        var clicked_item = _.find(bought_item_list, function(item) {
-            return item.barcode == clicked_barcode;
-        });
-        $(location_string).closest(".cart_item").find(".count_value").text(clicked_item.count);
-        $(location_string).closest(".cart_item").find(".item_price").text(clicked_item.total_price);
-        $("#cart_count").text(cart_items.length);
-        $("#total_payments").text(calculate_total_payments(bought_item_list));
+        if (cart_items != 0) {
+            var bought_item_list = printInventory(cart_items);
+            var total_price_text;
+            var clicked_barcode = $(location_string).closest(".cart_item").data("barcode");
+            var clicked_item = _.find(bought_item_list, function(item) {
+                return item.barcode == clicked_barcode;
+            });
+            if(clicked_item != undefined) {
+                $(location_string).closest(".cart_item").find(".count_value").text(clicked_item.count);
+                if(clicked_item.promotion_number != 0) {
+                    total_price_text = clicked_item.total_price + '(原价：'+clicked_item.price*clicked_item.count+')';
+                }
+                else {
+                    total_price_text = clicked_item.total_price;
+                }
+                $(location_string).closest(".cart_item").find(".item_price").text(total_price_text);
+            }
+            else {
+                $(location_string).closest(".cart_item").remove();
+            }
+
+
+
+            $("#cart_count").text(cart_items.length);
+            $("#total_payments").text(calculate_total_payments(bought_item_list));
+        }
+        else {
+            window.location.href='../views/product_list.html';
+        }
+
 
     }
 });

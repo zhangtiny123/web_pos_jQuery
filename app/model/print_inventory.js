@@ -21,7 +21,9 @@ var printInventory = function (inputs) {
         }
         i += 1;
     }
-    return list;
+    return _.sortBy(list, function(list_item) {
+        return list_item.price;
+    });
 
 
 };
